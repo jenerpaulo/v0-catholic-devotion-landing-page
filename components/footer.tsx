@@ -9,12 +9,12 @@ export function Footer() {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.png" alt="Logo Devoções Católicas" width={40} height={40} className="rounded-lg" />
-              <span className="text-xl font-sans font-light">Devoções Católicas</span>
+              <Image src="/logo.png" alt="Logo Sedevacante" width={40} height={40} className="rounded-lg" />
+              <span className="text-xl font-sans font-light">Sedevacante</span>
             </div>
             <p className="text-primary-foreground/80 font-serif leading-relaxed max-w-md">
-              Inspirando corações e almas através das mais belas tradições católicas. Um caminho de fé, esperança e
-              amor.
+              Preservando a tradição autêntica da Igreja Católica Apostólica Romana. Um caminho de fé, esperança e amor
+              através de comunidades espirituais no mundo.
             </p>
           </div>
 
@@ -23,35 +23,32 @@ export function Footer() {
             <h3 className="text-lg font-serif font-semibold mb-4">Links Rápidos</h3>
             <ul className="space-y-2 font-serif">
               <li>
-                <Link
-                  href="/devocoes"
-                  className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
-                >
-                  Devoções
+                <Link href="/" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  Início
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/produtos"
+                  href="/#localizacoes"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  Produtos
+                  Localizações
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/blog"
+                  href="/store"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  Blog
+                  Loja
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/sobre"
+                  href="/contato"
                   className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                 >
-                  Sobre Nós
+                  Contato
                 </Link>
               </li>
             </ul>
@@ -61,7 +58,7 @@ export function Footer() {
           <div>
             <h3 className="text-lg font-serif font-semibold mb-4">Contato</h3>
             <ul className="space-y-2 font-serif text-primary-foreground/80">
-              <li>contato@devocoes.com.br</li>
+              <li>contato@sedevacante.com.br</li>
               <li>(12) 98840-6441</li>
               <li>Segunda a Sexta</li>
               <li>9h às 18h</li>
@@ -73,7 +70,7 @@ export function Footer() {
         <div className="border-t border-primary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-primary-foreground/60 font-serif text-sm">
-              © 2025 Devoções Católicas. Todos os direitos reservados.
+              © 2025 Sedevacante. Todos os direitos reservados.
             </p>
             <div className="flex gap-6 font-serif text-sm">
               <Link

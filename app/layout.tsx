@@ -20,8 +20,9 @@ const crimsonText = Crimson_Text({
 })
 
 export const metadata: Metadata = {
-  title: "Devoções Católicas - Um caminho para o céu",
-  description: "Descubra as mais belas devoções católicas e encontre seu caminho espiritual",
+  title: "Sedevacante - Tradição Católica Apostólica Romana",
+  description:
+    "Preservando a fé verdadeira e as tradições imemoriáveis da Igreja Católica através de comunidades autênticas espalhadas pelo mundo.",
   generator: "v0.app",
 }
 
