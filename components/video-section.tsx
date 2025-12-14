@@ -46,16 +46,16 @@ export function VideoSection() {
   return (
     <section className="py-20 bg-secondary/50">
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-12 space-y-4">
             <h2 className="text-4xl lg:text-5xl font-sans font-light text-foreground text-balance">{t.videosTitle}</h2>
             <p className="text-lg text-muted-foreground font-serif">{t.videosSubtitle}</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
             {content.map((video) => (
-              <div key={video.id} className="space-y-3">
+              <div key={video.id} className="space-y-4">
                 <div className="aspect-video bg-black rounded-lg overflow-hidden shadow-lg">
                   <iframe
                     width="100%"
@@ -69,7 +69,7 @@ export function VideoSection() {
                     className="w-full h-full"
                   ></iframe>
                 </div>
-                <h3 className="text-center font-serif text-foreground text-sm">{video.title}</h3>
+                <h3 className="text-center font-serif text-foreground text-base">{video.title}</h3>
               </div>
             ))}
           </div>
