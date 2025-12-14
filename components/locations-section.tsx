@@ -1,7 +1,111 @@
 "use client"
 
-export function LocationsSection() {
-  const locations = [
+import { useLanguage } from "@/lib/language-context"
+
+const locations = {
+  en: [
+    {
+      id: 1,
+      name: "São Paulo",
+      country: "Brazil",
+      address: "123 Faith Street - São Paulo, SP",
+      email: "sp@sedevacante.com",
+      whatsapp: "5511987654321",
+      priest: "Fr. John of the Cross",
+      image: "/traditional-catholic-chapel-interior-brazil.jpg",
+    },
+    {
+      id: 2,
+      name: "Rome",
+      country: "Italy",
+      address: "456 Apostolic Way - Rome, RM",
+      email: "roma@sedevacante.com",
+      whatsapp: "393881234567",
+      priest: "Fr. Pietro Romanelli",
+      image: "/historic-catholic-basilica-rome-italy.jpg",
+    },
+    {
+      id: 3,
+      name: "Buenos Aires",
+      country: "Argentina",
+      address: "789 Rosary Avenue - Buenos Aires",
+      email: "ba@sedevacante.com",
+      whatsapp: "541142567890",
+      priest: "Fr. Carlos María",
+      image: "/colonial-catholic-church-argentina.jpg",
+    },
+    {
+      id: 4,
+      name: "Lisbon",
+      country: "Portugal",
+      address: "321 Grace Square - Lisbon",
+      email: "lisboa@sedevacante.com",
+      whatsapp: "351918765432",
+      priest: "Fr. António Silva",
+      image: "/portuguese-catholic-monastery-church.jpg",
+    },
+    {
+      id: 5,
+      name: "Mexico City",
+      country: "Mexico",
+      address: "654 Sacred Avenue - CDMX",
+      email: "mexico@sedevacante.com",
+      whatsapp: "525512345678",
+      priest: "Fr. Miguel Ángel García",
+      image: "/mexican-colonial-catholic-church.jpg",
+    },
+    {
+      id: 6,
+      name: "Paris",
+      country: "France",
+      address: "987 Cathedral Street - Paris",
+      email: "paris@sedevacante.com",
+      whatsapp: "33123456789",
+      priest: "Fr. François Dupont",
+      image: "/french-gothic-catholic-cathedral-paris.jpg",
+    },
+    {
+      id: 7,
+      name: "Warsaw",
+      country: "Poland",
+      address: "147 Faith Street - Warsaw",
+      email: "varsovia@sedevacante.com",
+      whatsapp: "48223456789",
+      priest: "Fr. Stanisław Kowalski",
+      image: "/polish-catholic-basilica-church.jpg",
+    },
+    {
+      id: 8,
+      name: "Madrid",
+      country: "Spain",
+      address: "258 Apostle Street - Madrid",
+      email: "madrid@sedevacante.com",
+      whatsapp: "34912345678",
+      priest: "Fr. Javier Ruiz",
+      image: "/spanish-catholic-church-madrid.jpg",
+    },
+    {
+      id: 9,
+      name: "Vienna",
+      country: "Austria",
+      address: "369 Faith Street - Vienna",
+      email: "vienna@sedevacante.com",
+      whatsapp: "43123456789",
+      priest: "Fr. Joseph Müller",
+      image: "/austrian-gothic-catholic-cathedral.jpg",
+    },
+    {
+      id: 10,
+      name: "Singapore",
+      country: "Singapore",
+      address: "741 Catholic Street - Singapore",
+      email: "singapore@sedevacante.com",
+      whatsapp: "6581234567",
+      priest: "Fr. Thomas Tan",
+      image: "/modern-catholic-church-singapore.jpg",
+    },
+  ],
+  pt: [
     {
       id: 1,
       name: "São Paulo",
@@ -102,23 +206,24 @@ export function LocationsSection() {
       priest: "Pe. Thomas Tan",
       image: "/modern-catholic-church-singapore.jpg",
     },
-  ]
+  ],
+}
+
+export function LocationsSection() {
+  const { language, t } = useLanguage()
+  const content = locations[language]
 
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-sans font-light text-foreground text-balance">
-            Nossas Comunidades Espirituais
-          </h2>
-          <p className="text-lg text-muted-foreground font-serif max-w-2xl mx-auto">
-            Presença da verdadeira fé em 10 localizações ao redor do mundo
-          </p>
+          <h2 className="text-4xl lg:text-5xl font-sans font-light text-foreground text-balance">{t.locationsTitle}</h2>
+          <p className="text-lg text-muted-foreground font-serif max-w-2xl mx-auto">{t.locationsSubtitle}</p>
         </div>
 
         {/* Locations Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
-          {locations.map((location) => (
+          {content.map((location) => (
             <div
               key={location.id}
               className="group bg-card rounded-lg overflow-hidden border border-border hover:shadow-lg transition-shadow"

@@ -1,9 +1,9 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Playfair_Display, Crimson_Text } from "next/font/google"
-import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
+import { LanguageProvider } from "@/lib/language-context"
 import "./globals.css"
 
 const playfairDisplay = Playfair_Display({
@@ -20,9 +20,9 @@ const crimsonText = Crimson_Text({
 })
 
 export const metadata: Metadata = {
-  title: "Sedevacante - Tradição Católica Apostólica Romana",
+  title: "Sedevacantist - Roman Catholic Apostolic Tradition",
   description:
-    "Preservando a fé verdadeira e as tradições imemoriáveis da Igreja Católica através de comunidades autênticas espalhadas pelo mundo.",
+    "Preserving the true faith and timeless traditions of the Catholic Church through authentic communities spread throughout the world.",
   generator: "v0.app",
 }
 
@@ -32,12 +32,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
-      <body
-        className={`font-serif ${playfairDisplay.variable} ${crimsonText.variable} ${GeistMono.variable} antialiased`}
-      >
-        <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
+    <html lang="en">
+      <body className={`font-serif ${playfairDisplay.variable} ${crimsonText.variable} antialiased`}>
+        <LanguageProvider>
+          <Suspense fallback={null}>{children}</Suspense>
+          <Analytics />
+        </LanguageProvider>
       </body>
     </html>
   )

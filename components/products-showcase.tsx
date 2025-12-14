@@ -4,67 +4,117 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ShoppingCart } from "lucide-react"
 import Image from "next/image"
+import { useLanguage } from "@/lib/language-context"
 
-const products = [
-  {
-    id: 1,
-    name: "Terço do Sagrado Coração",
-    price: "R$ 45,00",
-    image: "/beautiful-catholic-rosary-with-sacred-heart-medal.jpg",
-    description: "Terço artesanal com medalha do Sagrado Coração de Jesus",
-  },
-  {
-    id: 2,
-    name: "Livro de Orações Marianas",
-    price: "R$ 32,00",
-    image: "/elegant-catholic-prayer-book-with-virgin-mary-cove.jpg",
-    description: "Coletânea das mais belas orações à Nossa Senhora",
-  },
-  {
-    id: 3,
-    name: "Escapulário do Carmo",
-    price: "R$ 28,00",
-    image: "/traditional-brown-scapular-of-our-lady-of-mount-ca.jpg",
-    description: "Escapulário tradicional de Nossa Senhora do Carmo",
-  },
-  {
-    id: 4,
-    name: "Imagem de São José",
-    price: "R$ 65,00",
-    image: "/placeholder-9he95.png",
-    description: "Imagem artesanal de São José com o Menino Jesus",
-  },
-  {
-    id: 5,
-    name: "Novena de Santa Teresinha",
-    price: "R$ 18,00",
-    image: "/delicate-prayer-booklet-with-saint-therese-of-lisi.jpg",
-    description: "Novena completa de Santa Teresinha do Menino Jesus",
-  },
-  {
-    id: 6,
-    name: "Vela de Devoção",
-    price: "R$ 22,00",
-    image: "/elegant-catholic-devotion-candle.jpg",
-    description: "Vela artesanal para devoções e oração",
-  },
-]
+const products = {
+  en: [
+    {
+      id: 1,
+      name: "Sacred Heart Rosary",
+      price: "$15.00",
+      image: "/beautiful-catholic-rosary-with-sacred-heart-medal.jpg",
+      description: "Handcrafted rosary with Sacred Heart of Jesus medal",
+    },
+    {
+      id: 2,
+      name: "Marian Prayer Book",
+      price: "$12.00",
+      image: "/elegant-catholic-prayer-book-with-virgin-mary-cove.jpg",
+      description: "Collection of the most beautiful prayers to Our Lady",
+    },
+    {
+      id: 3,
+      name: "Carmelite Scapular",
+      price: "$10.00",
+      image: "/traditional-brown-scapular-of-our-lady-of-mount-ca.jpg",
+      description: "Traditional scapular of Our Lady of Mount Carmel",
+    },
+    {
+      id: 4,
+      name: "St. Joseph Statue",
+      price: "$22.00",
+      image: "/placeholder-9he95.png",
+      description: "Handcrafted statue of St. Joseph with Child Jesus",
+    },
+    {
+      id: 5,
+      name: "St. Therese Novena",
+      price: "$6.00",
+      image: "/delicate-prayer-booklet-with-saint-therese-of-lisi.jpg",
+      description: "Complete novena of St. Therese of the Child Jesus",
+    },
+    {
+      id: 6,
+      name: "Devotional Candle",
+      price: "$8.00",
+      image: "/elegant-catholic-devotion-candle.jpg",
+      description: "Handcrafted candle for devotions and prayer",
+    },
+  ],
+  pt: [
+    {
+      id: 1,
+      name: "Terço do Sagrado Coração",
+      price: "R$ 45,00",
+      image: "/beautiful-catholic-rosary-with-sacred-heart-medal.jpg",
+      description: "Terço artesanal com medalha do Sagrado Coração de Jesus",
+    },
+    {
+      id: 2,
+      name: "Livro de Orações Marianas",
+      price: "R$ 32,00",
+      image: "/elegant-catholic-prayer-book-with-virgin-mary-cove.jpg",
+      description: "Coletânea das mais belas orações à Nossa Senhora",
+    },
+    {
+      id: 3,
+      name: "Escapulário do Carmo",
+      price: "R$ 28,00",
+      image: "/traditional-brown-scapular-of-our-lady-of-mount-ca.jpg",
+      description: "Escapulário tradicional de Nossa Senhora do Carmo",
+    },
+    {
+      id: 4,
+      name: "Imagem de São José",
+      price: "R$ 65,00",
+      image: "/placeholder-9he95.png",
+      description: "Imagem artesanal de São José com o Menino Jesus",
+    },
+    {
+      id: 5,
+      name: "Novena de Santa Teresinha",
+      price: "R$ 18,00",
+      image: "/delicate-prayer-booklet-with-saint-therese-of-lisi.jpg",
+      description: "Novena completa de Santa Teresinha do Menino Jesus",
+    },
+    {
+      id: 6,
+      name: "Vela de Devoção",
+      price: "R$ 22,00",
+      image: "/elegant-catholic-devotion-candle.jpg",
+      description: "Vela artesanal para devoções e oração",
+    },
+  ],
+}
 
 export function ProductsShowcase() {
+  const { language, t } = useLanguage()
+  const content = products[language]
+
   return (
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-sans font-light text-foreground mb-4 text-balance">
-            Produtos para Sua Jornada Espiritual
+            {t.productsTitle}
           </h2>
           <p className="text-lg text-muted-foreground font-serif max-w-2xl mx-auto leading-relaxed">
-            Seleção cuidadosa de artigos religiosos que acompanham sua devoção e fé
+            {t.productsSubtitle}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
+          {content.map((product) => (
             <Card
               key={product.id}
               className="group hover:shadow-lg transition-all duration-300 bg-card border-border/50 h-full flex flex-col"
@@ -89,7 +139,7 @@ export function ProductsShowcase() {
                     className="bg-primary hover:bg-primary/90 text-primary-foreground font-serif rounded-full"
                   >
                     <ShoppingCart className="w-4 h-4 mr-2" />
-                    Comprar
+                    {t.productBuy}
                   </Button>
                 </div>
               </CardContent>
@@ -99,7 +149,7 @@ export function ProductsShowcase() {
 
         <div className="text-center mt-12">
           <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-serif px-8 py-3 text-lg rounded-full">
-            Ver Todos os Produtos
+            {t.productsButton}
           </Button>
         </div>
       </div>
