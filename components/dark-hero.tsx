@@ -11,13 +11,7 @@ export function DarkHero() {
     <section className="relative min-h-screen bg-black flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <Image
-          src="/traditional-catholic-dark-architecture-church-inte.jpg"
-          alt="Traditional Catholic Church Architecture"
-          fill
-          className="object-cover"
-          priority
-        />
+        <Image src="/images/bishops-02.jpg" alt="Traditional Catholic Mass" fill className="object-cover" priority />
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
