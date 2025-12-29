@@ -13,7 +13,7 @@ const updates = {
       description:
         "Our bishops have released an important declaration regarding the current crisis in the Church and the necessity of maintaining true apostolic tradition.",
       date: "March 15, 2024",
-      image: "/papal-tiara-and-traditional-catholic-symbols.jpg",
+      image: "/images/celebracao.jpeg",
     },
     side: [
       {
@@ -21,18 +21,21 @@ const updates = {
         title: "New Chapel Opening in São Paulo",
         description: "A new traditional Latin Mass chapel will open next month in the São Paulo community.",
         date: "March 12, 2024",
+        image: "/images/encontro-bispo.jpeg",
       },
       {
         label: "Highlight",
         title: "Annual Conference Announced",
         description: "Join us for our annual conference on traditional Catholic theology this summer.",
         date: "March 10, 2024",
+        image: "/images/bispocoz.webp",
       },
       {
         label: "News",
         title: "Catechism Classes Expansion",
         description: "We are expanding our catechism program to include online classes for remote communities.",
         date: "March 8, 2024",
+        image: "/images/bispo-celeb.webp",
       },
     ],
   },
@@ -43,7 +46,7 @@ const updates = {
       description:
         "Nossos bispos divulgaram uma importante declaração sobre a crise atual na Igreja e a necessidade de manter a verdadeira tradição apostólica.",
       date: "15 de março de 2024",
-      image: "/papal-tiara-and-traditional-catholic-symbols.jpg",
+      image: "/images/celebracao.jpeg",
     },
     side: [
       {
@@ -51,12 +54,14 @@ const updates = {
         title: "Abertura de Nova Capela em São Paulo",
         description: "Uma nova capela de Missa Latina Tradicional abrirá no próximo mês na comunidade de São Paulo.",
         date: "12 de março de 2024",
+        image: "/images/encontro-bispo.jpeg",
       },
       {
         label: "Destaque",
         title: "Conferência Anual Anunciada",
         description: "Junte-se a nós para nossa conferência anual sobre teologia católica tradicional neste verão.",
         date: "10 de março de 2024",
+        image: "/images/bispocoz.webp",
       },
       {
         label: "Notícias",
@@ -64,6 +69,7 @@ const updates = {
         description:
           "Estamos expandindo nosso programa de catecismo para incluir aulas online para comunidades remotas.",
         date: "8 de março de 2024",
+        image: "/images/bispo-celeb.webp",
       },
     ],
   },
@@ -120,6 +126,16 @@ export function LatestUpdates() {
             {content.side.map((update, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow bg-card border-border">
                 <CardContent className="p-6">
+                  {update.image && (
+                    <div className="relative aspect-video overflow-hidden rounded-lg mb-4">
+                      <Image
+                        src={update.image || "/placeholder.svg"}
+                        alt={update.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
                   <Badge
                     className="w-fit mb-2 font-serif"
                     variant={update.label === "Highlight" || update.label === "Destaque" ? "default" : "secondary"}
